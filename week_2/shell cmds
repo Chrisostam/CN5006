@@ -1,0 +1,95 @@
+##Task 1
+[
+  {
+    $match: {
+      Education: "Master"
+    }
+  },
+  {
+    $group: {
+      _id: "$Marital Status",
+      avgAge: {
+        $avg: "$Age"
+      },
+      minAge: {
+        $min: "$Age"
+      },
+      maxAge: {
+        $max: "$Age"
+      },
+      avgSalary: {
+        $avg: "$Salary"
+      },
+      minSalary: {
+        $min: "$Salary"
+      },
+      maxSalary: {
+        $max: "$Salary"
+      }
+    }
+  }
+]
+
+##Task 2
+[
+  {
+    $match: {
+      Gender: "Female"
+    }
+  },
+  {
+    $group: {
+      _id: "$Age",
+      minSalary: {
+        $min: "$Salary"
+      },
+      maxSalary: {
+        $max: "$Salary"
+      },
+      avgSalary: {
+        $avg: "$Salary"
+      }
+    }
+  }
+]
+
+##Task 3
+[
+  {
+    $match: {
+      Gender: "Male"
+    }
+  },
+  {
+    $group: {
+      _id: "$Age",
+      minSalary: {
+        $min: "$Salary"
+      },
+      maxSalary: {
+        $max: "$Salary"
+      },
+      avgSalary: {
+        $avg: "$Salary"
+      }
+    }
+  }
+]
+
+##Task 4
+[
+  {
+    $group: {
+      _id: {
+        gender: "$Gender",
+        maritalStatus: "$Marital Status"
+      }
+    }
+  },
+  {
+    $count: "total"
+  }
+]
+
+
+
